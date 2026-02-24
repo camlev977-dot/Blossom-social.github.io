@@ -1,234 +1,489 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Blossom Social | Social Media & Google Business Growth</title>
-  <meta name="description" content="Blossom Social helps small businesses grow with consistent social media and Google Business Profile management." />
+  <title>Blossom Social Co. | Social Media Management</title>
+  <meta name="description" content="Blossom Social Co. helps small businesses grow with Google Business Profile management and social media content. Simple, chic, and effective monthly packages." />
 
   <style>
     :root{
-      --bg:#fff7fb;
-      --panel: rgba(255,255,255,.82);
-      --text:#1c1020;
-      --muted:#5b4a61;
-      --pink:#ff4fa3;
-      --pink2:#ff7bc2;
-      --border: rgba(28,16,32,.12);
-      --shadow: 0 20px 60px rgba(28,16,32,.12);
-      --radius: 18px;
+      --bg:#0b0b10;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text:#f6f6fb;
+      --muted: rgba(246,246,251,.78);
+      --line: rgba(255,255,255,.12);
+      --accent:#ff4fb6;      /* hot pink */
+      --accent2:#6df3ff;     /* electric cyan */
+      --shadow: 0 22px 70px rgba(0,0,0,.45);
+      --radius: 22px;
       --max: 1100px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,79,163,.20), transparent 60%),
-        radial-gradient(800px 450px at 85% 20%, rgba(255,123,194,.18), transparent 60%),
-        radial-gradient(900px 550px at 50% 100%, rgba(255,79,163,.12), transparent 65%),
-        var(--bg);
-      line-height:1.5;
+        radial-gradient(1200px 600px at 20% 10%, rgba(255,79,182,.22), transparent 55%),
+        radial-gradient(900px 500px at 80% 20%, rgba(109,243,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(255,79,182,.10), transparent 60%),
+        linear-gradient(180deg, #07070c, var(--bg));
+      overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
 
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(255,247,251,.78);
-      border-bottom: 1px solid var(--border);
-    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px}
+
+    /* NAV */
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 0;
-      gap: 12px;
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,7,12,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max); margin:0 auto;
+      padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
     }
-    .mark{
-      width:12px;height:12px;border-radius:999px;
-      background: linear-gradient(135deg, var(--pink), var(--pink2));
-      box-shadow: 0 0 18px rgba(255,79,163,.35);
+    .logo{
+      width:34px; height:34px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 45%),
+        linear-gradient(135deg, rgba(255,79,182,.95), rgba(109,243,255,.85));
+      box-shadow: 0 10px 30px rgba(255,79,182,.12);
+      border: 1px solid rgba(255,255,255,.18);
     }
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,79,163,.35);
-      background: linear-gradient(135deg, var(--pink), var(--pink2));
-      color:#fff;
-      font-weight:900;
-      box-shadow: 0 12px 40px rgba(255,79,163,.18);
+    .nav-links{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      font-size:14px; color:var(--muted);
+    }
+    .nav-links a{padding:8px 10px; border-radius:12px}
+    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      background: linear-gradient(135deg, rgba(255,79,182,.18), rgba(109,243,255,.12));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 16px 44px rgba(0,0,0,.35);
+      font-weight:700; font-size:14px;
     }
 
-    .hero{padding: 48px 0 22px;}
+    /* HERO */
+    .hero{
+      padding:44px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr}
+    }
     .card{
-      background: var(--panel);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
     }
-    .hero-inner{padding: 30px;}
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(36px, 4.5vw, 58px);
-      line-height:1.05;
-      letter-spacing:-.6px;
+    .hero-left{padding:30px 26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px; font-weight:700;
     }
-    .lead{margin: 0 0 20px; color:var(--muted); font-size: 17px; max-width: 58ch;}
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -.8px;
+    }
+    .grad{
+      background: linear-gradient(90deg, var(--text), rgba(255,255,255,.70));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+    .cta-row{
+      margin-top:18px;
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 800;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,79,182,.9), rgba(109,243,255,.55));
+      border-color: rgba(255,255,255,.20);
+      color: #0b0b10;
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+    .hero-right{
+      padding:22px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .mini{
+      padding:16px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:.3px}
+    .mini p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+    .spark{
+      width:100%;
+      height:10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,79,182,.0), rgba(255,79,182,.75), rgba(109,243,255,.8), rgba(109,243,255,.0));
+      filter: blur(.1px);
+      opacity:.9;
+      margin: 10px 0 2px;
+    }
 
-    .grid{
+    /* SECTIONS */
+    section{padding:28px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.2px;
+    }
+    .section-title span{
+      color:var(--muted);
+      font-size: 13px;
+    }
+    .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding: 16px 0;
+      gap:14px;
     }
     @media (max-width: 900px){
-      .grid{grid-template-columns: 1fr}
+      .grid-3{grid-template-columns:1fr}
     }
 
-    h2{margin: 0 0 12px; font-size: 24px;}
-
-    .mini{padding: 22px;}
-    .mini h3{margin: 0 0 10px; font-size: 20px}
-    .mini p{margin:0; color:var(--muted)}
-
+    /* PRICING */
+    .pricing-card{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .pricing-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(500px 260px at 30% 0%, rgba(255,79,182,.18), transparent 60%),
+                  radial-gradient(500px 260px at 80% 10%, rgba(109,243,255,.12), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .pricing-content{position:relative; z-index:2}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-weight:800;
+      font-size: 12px;
+      letter-spacing:.2px;
+    }
     .price{
-      font-size:32px;
-      font-weight:900;
-      margin:10px 0;
-      color:var(--pink);
+      margin:10px 0 6px;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing:-.6px;
+    }
+    .price small{
+      font-size: 14px;
+      color: var(--muted);
+      font-weight:800;
+      letter-spacing:.1px;
+    }
+    .desc{margin:0 0 12px; color:var(--muted); line-height:1.6; font-size:14px}
+    ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; flex-direction:column; gap:8px;
+    }
+    li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: rgba(246,246,251,.88);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .dot{
+      width:10px; height:10px; margin-top:5px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(255,79,182,.95), rgba(109,243,255,.85));
+      box-shadow: 0 8px 18px rgba(255,79,182,.16);
+      flex: 0 0 10px;
+    }
+    .highlight{
+      border-color: rgba(255,79,182,.38);
+      background: linear-gradient(180deg, rgba(255,79,182,.12), rgba(255,255,255,.04));
     }
 
-    ul{margin: 10px 0 0; padding-left: 18px; color:var(--muted)}
-    li{margin: 6px 0}
-
-    .contact{padding: 22px}
-    .contact a{color:var(--pink); font-weight:700}
-
-    .footer{
-      padding: 26px 0 36px;
-      color:var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 18px;
-      font-size: 13px;
+    /* CONTACT */
+    .contact{
+      padding:22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){
+      .contact{grid-template-columns:1fr}
+    }
+    .contact .box{
+      padding:16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .label{color:var(--muted); font-size:13px; font-weight:800; letter-spacing:.2px}
+    .value{margin-top:6px; font-weight:850; font-size:16px}
+    .value a{opacity:.95}
+    .value a:hover{opacity:1; text-decoration:underline}
+    footer{
+      padding-top: 14px;
+      color: rgba(246,246,251,.55);
+      font-size: 12px;
       text-align:center;
     }
   </style>
 </head>
 
 <body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          Blossom Social Co.
+          <div style="font-size:12px; color: rgba(246,246,251,.70); font-weight:700; margin-top:2px;">
+            Local visibility + social content
+          </div>
+        </div>
+      </div>
 
-<header>
-  <div class="wrap nav">
-    <div class="brand">
-      <span class="mark"></span>
-      <span>BLOSSOM SOCIAL</span>
-    </div>
-    <a class="cta" href="#contact">Contact</a>
-  </div>
-</header>
-
-<main class="wrap">
-
-<section class="hero">
-  <div class="card hero-inner">
-    <h1>Social media & Google visibility handled for you.</h1>
-    <p class="lead">
-      Blossom Social helps small businesses stay active, visible, and attracting customers without having to manage everything themselves.
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>Services</h2>
-  <div class="grid">
-    <div class="card mini">
-      <h3>Google Business Profile</h3>
-      <p>Setup, optimization, and weekly updates so your business shows up locally.</p>
-    </div>
-    <div class="card mini">
-      <h3>Facebook & Instagram</h3>
-      <p>Consistent content that keeps your brand active and professional.</p>
-    </div>
-    <div class="card mini">
-      <h3>Engagement & Growth</h3>
-      <p>Stay top-of-mind, build trust, and attract new customers consistently.</p>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <span class="pill">✨ Chic • Simple • Results</span>
+      </div>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Pricing</h2>
+  <main class="wrap">
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker">🌸 Blossom Social Co. • Social Media Management</div>
+        <h1><span class="grad">Grow, glow,</span> and blossom online.</h1>
+        <p class="sub">
+          I help small businesses stay visible and active with a clean, modern content system — Google Business Profile posting,
+          social content, and engagement that actually supports growth (without the overwhelm).
+        </p>
 
-  <div class="grid">
+        <div class="cta-row">
+          <a class="btn primary" href="#pricing">View Packages</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
 
-    <div class="card mini">
-      <h3>Google Business Only</h3>
-      <div class="price">$250–$350/month</div>
-      <ul>
-        <li>GBP setup & optimization</li>
-        <li>Weekly Google posts</li>
-        <li>Local visibility improvements</li>
-      </ul>
+        <div class="spark" aria-hidden="true"></div>
+        <p class="sub" style="font-size:14px; margin-top:10px;">
+          Perfect for busy business owners who want consistency, credibility, and local results.
+        </p>
+      </div>
+
+      <div class="card hero-right">
+        <div class="mini">
+          <h3>What you get</h3>
+          <p>Reliable posting, clean visuals, and engagement that supports your presence across platforms.</p>
+        </div>
+        <div class="mini">
+          <h3>Best for</h3>
+          <p>Local service businesses, salons, contractors, creatives, and anyone who needs a stronger online footprint.</p>
+        </div>
+        <div class="mini">
+          <h3>Style</h3>
+          <p>Modern 2026 aesthetic — bold, clean, and not overly “cartoony.”</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card mini">
-      <h3>GBP + Facebook & Instagram</h3>
-      <div class="price">$500/month</div>
-      <ul>
-        <li>Google Business management</li>
-        <li>Facebook & Instagram posting</li>
-        <li>Consistent branded content</li>
-      </ul>
-    </div>
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <span>Simple deliverables. Clear value.</span>
+      </div>
 
-    <div class="card mini">
-      <h3>Full Management + Engagement</h3>
-      <div class="price">$750/month</div>
-      <ul>
-        <li>Everything included above</li>
-        <li>Light engagement & responses</li>
-        <li>Growth-focused strategy</li>
-      </ul>
-    </div>
+      <div class="grid-3">
+        <div class="card pricing-card">
+          <div class="pricing-content">
+            <div class="tag">📍 Local Visibility</div>
+            <p class="desc" style="margin-top:10px;">
+              Google Business Profile setup and weekly posts to keep you active in local search.
+            </p>
+            <ul>
+              <li><span class="dot"></span>GBP setup + optimization</li>
+              <li><span class="dot"></span>Weekly Google posts (offers, updates, photos)</li>
+              <li><span class="dot"></span>Posting cadence + content direction</li>
+            </ul>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <div class="card pricing-card">
+          <div class="pricing-content">
+            <div class="tag">📱 Social Content</div>
+            <p class="desc" style="margin-top:10px;">
+              Consistent Facebook + Instagram posts designed to look clean and keep your page alive.
+            </p>
+            <ul>
+              <li><span class="dot"></span>FB + IG content posts</li>
+              <li><span class="dot"></span>Repurposed content system</li>
+              <li><span class="dot"></span>Light brand consistency</li>
+            </ul>
+          </div>
+        </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card contact">
+        <div class="card pricing-card">
+          <div class="pricing-content">
+            <div class="tag">💬 Engagement</div>
+            <p class="desc" style="margin-top:10px;">
+              Engagement support that makes your brand feel active, responsive, and trusted.
+            </p>
+            <ul>
+              <li><span class="dot"></span>Likes + comment interactions</li>
+              <li><span class="dot"></span>Engagement routines</li>
+              <li><span class="dot"></span>Community presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>Reach out directly to get started:</p>
+    <section id="pricing">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <span>Monthly packages • straightforward</span>
+      </div>
 
-    <p><strong>Phone:</strong><br>
-      <a href="tel:8564192473">(856) 419-2473</a>
-    </p>
+      <div class="grid-3">
+        <div class="card pricing-card">
+          <div class="pricing-content">
+            <div class="tag">Starter • GBP</div>
+            <div class="price">$250 <small>/ month</small></div>
+            <p class="desc">
+              Google Business Profile setup + weekly posts to boost local activity and visibility.
+            </p>
+            <ul>
+              <li><span class="dot"></span>GBP setup + optimization</li>
+              <li><span class="dot"></span>Weekly Google posts</li>
+              <li><span class="dot"></span>Basic posting strategy</li>
+            </ul>
+          </div>
+        </div>
 
-    <p><strong>Email:</strong><br>
-      <a href="mailto:clevy1209@gmail.com">clevy1209@gmail.com</a>
-    </p>
+        <div class="card pricing-card highlight">
+          <div class="pricing-content">
+            <div class="tag">Most Popular • Social + Engage</div>
+            <div class="price">$400 <small>/ month</small></div>
+            <p class="desc">
+              Facebook + Instagram content plus engagement to keep your accounts active and responsive.
+            </p>
+            <ul>
+              <li><span class="dot"></span>FB + IG posting</li>
+              <li><span class="dot"></span>Engagement support</li>
+              <li><span class="dot"></span>Consistency + brand presence</li>
+            </ul>
+          </div>
+        </div>
 
-    <p><strong>Facebook:</strong><br>
-      <a href="https://facebook.com/" target="_blank">Blossom Social Co.</a>
-    </p>
+        <div class="card pricing-card">
+          <div class="pricing-content">
+            <div class="tag">Full Management</div>
+            <div class="price">$600 <small>/ month</small></div>
+            <p class="desc">
+              Everything included + more hands-on engagement (comments, likes, and community interaction).
+            </p>
+            <ul>
+              <li><span class="dot"></span>Everything in $400 package</li>
+              <li><span class="dot"></span>Comments + likes + engagement routines</li>
+              <li><span class="dot"></span>More active community presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div style="margin-top:16px;">
-      <a class="cta" href="mailto:clevy1209@gmail.com">Email to Get Started</a>
-    </div>
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Let’s get you visible.</span>
+      </div>
 
-  </div>
-</section>
+      <div class="card contact">
+        <div class="box">
+          <div class="label">Phone</div>
+          <div class="value"><a href="tel:+18564192473">856-419-2473</a></div>
+        </div>
 
-<div class="footer">
-  © <script>document.write(new Date().getFullYear())</script> Blossom Social
-</div>
+        <div class="box">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:clevy1209@gmail.com">clevy1209@gmail.com</a></div>
+        </div>
 
-</main>
+        <div class="box">
+          <div class="label">Facebook</div>
+          <div class="value">
+            <a href="https://www.facebook.com/search/top?q=Blossom%20Social%20Co." target="_blank" rel="noopener">
+              Blossom Social Co.
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="label">Quick Message</div>
+          <div class="value" style="font-size:14px; font-weight:750; color: var(--muted); line-height:1.6;">
+            Send a text or email with your business name + what you need help with, and I’ll reply with next steps.
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="y"></span> Blossom Social Co. • Built with clean, modern vibes 🌸
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
